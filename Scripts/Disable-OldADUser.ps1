@@ -9,6 +9,7 @@ $FileBrowser.ShowDialog()
 #Load csv 
 $UsersToDisable = Import-Csv -Path $FileBrowser.FileName
 
+#Get todays date 
 $TodaysDate = Get-Date -Format "dd/MM/yyyy"
 
 foreach ( $User in $UsersToDisable ){
