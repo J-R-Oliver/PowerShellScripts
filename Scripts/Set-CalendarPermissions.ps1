@@ -1,3 +1,14 @@
+#Start Exchange Session
+$SessionParams = @{
+    ConfigurationName = 'Microsoft.Exchange'
+    ConnectionUri = 'https://outlook.office365.com/powershell-liveid/'
+    Credential = ( Get-Credential )
+    Authentication = 'Basic'
+    AllowRedirection = $true
+
+}
+Import-PSSession ( New-PSSession @SessionParams )
+
 #Get Calendar permissions
 $UserName = Read-Host -Prompt "Enter Username"
 Get-MailboxFolderPermission -Identity "$($UserName):\Calendar"
@@ -10,6 +21,9 @@ Set-Mailbox -Identity $UserName -DetailLevel LimitedDetails
 $User1 = Read-Host -Prompt "Enter username of the calendar you wish to ammend"
 $User2 = Read-Host -Prompt "Enter Username of user who you wish to give access"
 Add-MailboxFolderPermission -Identity “$($User1):\calendar” –User “$User2” -AccessRights Reviewer
+
+#Close Exchange Session 
+Remove-PSSession ( Get-PSSession )
 
 <#
 
