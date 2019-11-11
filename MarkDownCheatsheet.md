@@ -188,10 +188,10 @@ A task list creates checkboxes that can be checked off by collaborators in a giv
 
 If you include a task list in the first comment of an Issue, you will get a handy progress indicator in your Issue list
 
->- [x] this is a complete item
->- [ ] this is an incomplete item
->- [x] \[links](url), \**formatting**, and \<del>tags\</del> supported
->- [x] list syntax required (any unordered or ordered list supported)
+>- \[x] this is a complete item
+>- \[ ] this is an incomplete item
+>- \[x] \[links](url), \**formatting**, and \<del>tags\</del> supported
+>- \[x] list syntax required (any unordered or ordered list supported)
 >   - Like this
 
 - [x] this is a complete item
@@ -199,3 +199,11 @@ If you include a task list in the first comment of an Issue, you will get a hand
 - [x] [links](url), **formatting**, and <del>tags</del> supported
 - [x] list syntax required (any unordered or ordered list supported)
   - Like this
+
+  ## Escaping Characters 
+
+  To display a literal character that would otherwise be used to format text in a Markdown document, add a backslash ( \ ) in front of the character.
+
+  >\\*Without the backslash, this would be a bullet in an unordered list.
+
+  *Without the backslash, this would be a bullet in an unordered list.
