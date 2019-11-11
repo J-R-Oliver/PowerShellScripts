@@ -81,8 +81,6 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 >URLs and URLs in angle brackets will automatically get turned into links. 
 >http://www.example.com or \<http://www.example.com> and sometimes 
 >example.com (but not on Github, for example).
->
-
 
 There are two ways to create links.
 
@@ -91,6 +89,14 @@ There are two ways to create links.
 URLs and URLs in angle brackets will automatically get turned into links. 
 http://www.example.com or <http://www.example.com> and sometimes 
 example.com (but not on Github, for example).
+
+## Relative Links 
+
+A relative link is a link that is relative to the current file. For example, if you have a README file in root of your repository, and you have another file in docs/CONTRIBUTING.md, the relative link to CONTRIBUTING.md in your README might look like this:
+
+>\[Fix-OneDriveForBusiness](scripts/Fix-OneDriveForBusiness.bat)
+
+[Fix-OneDriveForBusiness](scripts/Fix-OneDriveForBusiness.bat)
 
 ## Images
 
