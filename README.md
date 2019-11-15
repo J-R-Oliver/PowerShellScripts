@@ -1,15 +1,6 @@
 # PowerShell-Library
 Library of PowerShell Scripts
 
-## Task List 
-
-- [x] Create Markdown cheat sheet. 
-- [x] Add task list to README.md
-- [ ] Create contents page for GitHub.
-    - [x] Create folder hierarchy of scripts.
-    - [x] Add links to README page.
-- [x] Create EdgeOS CLI cheat sheet.
-
 ## Contents
 
 ### **Active Directory Scripts**
@@ -44,6 +35,7 @@ Library of PowerShell Scripts
 [Get-UserTeamMembership](Exchange%20Online%20Scripts/Get-UserTeamMembership.ps1)\
 [Guide - How to delete items out of user inbox](Exchange%20Online%20Scripts/Guide%20-%20How%20to%20delete%20Aitems%20out%20of%20user%20inbox%20.docx)\
 [Hide-O365GroupGAL](Exchange%20Online%20Scripts/Hide-O365GroupGAL.txt)\
+[Hide-UserfromGAL](Exchange%20Online%20Scripts/Hide-UserfromGAL.ps1)\
 [Set-CalendarPermissions](Exchange%20Online%20Scripts/Set-CalendarPermissions.ps1)\
 [Set-OutOfOffice](Exchange%20Online%20Scripts/Set-OutOfOffice.ps1)\
 [Start-HardDeletePurge](Exchange%20Online%20Scripts/Start-HardDeletePurge.ps1)
@@ -59,7 +51,7 @@ Library of PowerShell Scripts
 [LogonScript](Computer%20Scripts/LogonScript.ps1)\
 [Move-FilesWithLog](Computer%20Scripts/Move-FilesWithLog.ps1)\
 [Output-MSIProperies](Computer%20Scripts/Output-MSIProperies.ps1)\
-[Remove Office365 License](Computer%20Scripts/Remove%20Office365%20License.docx)\
+[Remove-Office365License](Computer%20Scripts\Remove-Office365License.bat)\
 [Test-RemotePowerShell](Computer%20Scripts/Test-RemotePowerShell.ps1)\
 [Update-WindowsUpdate](Computer%20Scripts/Update-WindowsUpdate.ps1)
 
@@ -72,3 +64,15 @@ Library of PowerShell Scripts
 
 [EdgeOS CLI Guide](EdgeOS%20Scripts/EdgeOS%20CLI%20Guide.md)\
 [Notepad](EdgeOS%20Scripts/Notepad.sh)
+
+## Task List 
+
+- [x] Create Markdown cheat sheet. 
+- [x] Add task list to README.md
+- [x] Create contents page for GitHub.
+    - [x] Create folder hierarchy of scripts.
+    - [x] Add links to README page.
+- [x] Create EdgeOS CLI cheat sheet.
+- [ ] Updated contents page
+    - [x] Hide-UserfromGAL
+    - [x] Remove-Office365License

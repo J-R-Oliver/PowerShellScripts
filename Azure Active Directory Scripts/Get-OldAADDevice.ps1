@@ -1,4 +1,5 @@
-﻿If( $null -eq ( Get-InstalledModule `
+﻿#Check if necessary module is installed and install not pressent
+If( $null -eq ( Get-InstalledModule `
                 -Name "MSOnline" `
                 -ErrorAction SilentlyContinue)){
     
@@ -6,11 +7,19 @@
 
 }
 
+#Connect to Microsoft Online Service 
 Connect-MsolService
 
-$Date = [datetime]’2019/05/05’
-
-$OldDevices = Get-MsolDevice -all -LogonTimeBefore $Date | 
-            select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp, Disabled, Removed
-
+#Script
+$SelectParams = @{ 
+    Property = 'Enabled',
+               'DeviceId',
+               'DisplayName',
+               'DeviceTrustType',
+               'ApproximateLastLogonTimestamp',
+               'Disabled',
+               'Removed'
+}
+[datetime]$UserDate = Read-Host -Prompt 'Please enter date in american format, e.g. 2019/11/01'
+$OldDevices = Get-MsolDevice -all -LogonTimeBefore $UserDate | select-object @SelectParams
 $OldDevices | Export-Csv -NoTypeInformation -Path (Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "OldDevices.csv")

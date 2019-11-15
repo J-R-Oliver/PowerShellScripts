@@ -1,2 +1,0 @@
-Get-UnifiedGroup [Group name] -IncludeAllProperties | Select name, HiddenFromAddressListsEnabled
-Set-UnifiedGroup [Group name] -HiddenFromAddressListsEnabled $True

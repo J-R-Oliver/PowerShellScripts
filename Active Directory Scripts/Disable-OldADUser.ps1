@@ -7,17 +7,16 @@ $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
 $FileBrowser.ShowDialog()
 
 #Load csv 
-$UsersToDisable = Import-Csv -Path $FileBrowser.FileName
+$UsersToDisable = Import-Csv -Path $FileBrowser.FileName | Select-Object 'UserPrincipalName', 'Name', 'Account Deleted'
 
 #Get todays date and sets count 
-$TodaysDate = Get-Date -Format "dd/MM/yyyy"
+$TodaysDate = Get-Date -Format 'MM/dd/yyyy'
 $Count = 1
 
 #Script
 foreach ( $User in $UsersToDisable ){
-    Write-Progress -Id 0 -Activity "Disabling $($User.UserPrincipalName)" -Status "$Count of $($UsersToDisable.Count)" -PercentComplete (($Count / $UsersToDisable.Count) * 100)
-    UserAccount = Get-AdUser -Filter "UserPrincipalName -eq '$($User.UserPrincipalName)'"
-    Set-ADUser -Identity $UserAccount -Add @{msExchHideFromAddressLists="TRUE"} -Description "Disabled on $TodaysDate"                       
+    $UserAccount = Get-AdUser -Filter "UserPrincipalName -eq '$($User.UserPrincipalName)'"
+    Set-ADUser -Identity $UserAccount -Replace @{msExchHideFromAddressLists="TRUE"} -Description "Disabled on $TodaysDate"                       
     Disable-ADAccount -Identity $UserAccount
     Move-ADObject -Identity $UserAccount -TargetPath 'OU=DisabledAccounts,DC=st-annes,DC=org,DC=uk' 
     $User."Account Deleted" = 'Disabled'
@@ -25,5 +24,5 @@ foreach ( $User in $UsersToDisable ){
 }
 
 #Exports array to spreadsheet 
-$Path = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "VEEAMExcludedUserAccounts.csv"
+$Path = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "DisabledUserAccounts($($TodaysDate.Replace('/','.'))).csv"
 $UsersToDisable | Export-Csv -NoTypeInformation -Path $Path

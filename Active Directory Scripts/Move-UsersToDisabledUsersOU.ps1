@@ -14,7 +14,7 @@ $SelectParams = @{
                'AAD Account Status', 
                'Stripped Licenses'
 }
-$DisabledUsers = Get-ADUser $ADUserParams | Select-Object $SelectParams
+$DisabledUsers = Get-ADUser $ADUserParams | Select-Object @SelectParams
 
 #Moves users, hides from address book and adds disabled description.
 foreach ( $User in $DisabledUsers ){
