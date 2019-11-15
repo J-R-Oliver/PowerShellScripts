@@ -76,3 +76,4 @@ Library of PowerShell Scripts
 - [ ] Updated contents page
     - [x] Hide-UserfromGAL
     - [x] Remove-Office365License
+    - [ ] Start-windowsUpdates
