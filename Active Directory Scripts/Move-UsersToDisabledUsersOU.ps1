@@ -1,3 +1,7 @@
+#Tests for Active Directory module.
+Try { Import-Module ActiveDirectory -ErrorAction Stop }
+Catch { Write-Warning "Unable to load Active Directory module because $($Error[0])"; Exit }
+
 #Get all users set to disabled inside of St Anne's Users OU. ResultSetSize limits the number of users.
 $ADUserParams = @{ 
     Filter = ‘Enabled -eq $false’
@@ -8,7 +12,7 @@ $ADUserParams = @{
 $SelectParams = @{
     Property = 'Name', 
                'SamAccountName', 
-               @{Name='WhenDisabled';Expression={$_.whenChanged.ToshortDatestring()}}, 
+               @{ Name = 'WhenDisabled'; Expression = { $_.whenChanged.ToshortDatestring() }}, 
                'DistinguishedName', 
                'AD Account Status', 
                'AAD Account Status', 

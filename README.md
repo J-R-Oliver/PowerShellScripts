@@ -51,7 +51,7 @@ Library of PowerShell Scripts
 [LogonScript](Computer%20Scripts/LogonScript.ps1)\
 [Move-FilesWithLog](Computer%20Scripts/Move-FilesWithLog.ps1)\
 [Output-MSIProperies](Computer%20Scripts/Output-MSIProperies.ps1)\
-[Remove-Office365License](Computer%20Scripts\Remove-Office365License.bat)\
+[Remove-Office365License](Computer%20Scripts/Remove-Office365License.bat)\
 [Test-RemotePowerShell](Computer%20Scripts/Test-RemotePowerShell.ps1)\
 [Update-WindowsUpdate](Computer%20Scripts/Update-WindowsUpdate.ps1)
 
@@ -76,3 +76,8 @@ Library of PowerShell Scripts
 - [ ] Updated contents page
     - [x] Hide-UserfromGAL
     - [x] Remove-Office365License
+    - [ ] Remove Add-GEBulk.....
+    - [ ] Add New-csvADUser
+    - [ ] Remove Get-ETypeLaptopNames
+    - [ ] Remove Remove-Office365Licenses [WIP2]
+    - [ ] Add Intune Scripts

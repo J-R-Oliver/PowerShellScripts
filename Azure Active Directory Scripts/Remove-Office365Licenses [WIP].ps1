@@ -7,36 +7,50 @@ If( $null -eq ( Get-InstalledModule `
 
 }
 
+#Import AD Module 
+Try { Import-Module MSOnline -ErrorAction Stop }
+Catch { Write-Warning "Unable to load Active Directory module because $($Error[0])"; Exit }
+
 #Opens session to AzureAD / Msol
 Connect-AzureAD
 
 Connect-MsolService
 
 #Imports user information and creates array
-$UserAccounts = Import-Csv -Path (Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "UserAccounts.csv") |
-                Select-Object 'User Principal Name', 'Display Name', 'Last Acvitiy',`
-                               'Assigned Products', 'License Removed', 'Account Deleted'
+
+#Create file browser
+Add-Type -AssemblyName System.Windows.Forms
+$FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
+    InitialDirectory = [Environment]::GetFolderPath('Desktop')
+    Filter = 'CSV (Comma delimited) (*csv) |*.csv'
+}
+$FileBrowser.ShowDialog()
+
+$SelectParams = @{
+    Property = 'UserPrincipalName',
+               'DisplayName',
+               'LastAcvitiy',
+               'AssignedProducts',
+               'LicenseRemoved',
+               'AccountDeleted'
+}
+
+$UserAccounts = Import-Csv -Path $FileBrowser.FileName | Select-Object @SelectParams 
 
 #Removes licenses and adds user to exlusion group 
 foreach ( $User in $UserAccounts ){
     try {
-        $license = Get-MsolUser -UserPrincipalName $user."User Principal Name" | Select-Object -ExpandProperty licenses
-        
-        if ( $User."Assigned Products" -ne $null -or$User."Assigned Products" -ne "" ) {
-            Set-MsolUserLicense -UserPrincipalName $user."User Principal Name" -RemoveLicense $license.AccountSkuId
-            $User."Assigned Products" = $license.AccountSkuId
+        $Licenses = Get-MsolUser -UserPrincipalName $User.UserPrincipalName | Select-Object -ExpandProperty licenses
+        if ( $User.AssignedProducts ) {
+            Set-MsolUserLicense -UserPrincipalName $user.UserPrincipalName -RemoveLicense $Licenses.AccountSkuId
+            $User.AssignedProducts = $license.AccountSkuId
         } 
-        
-        $ObjectId = (Get-AzureADUser -ObjectId $User."User principal name").ObjectId
-
+        $ObjectId = ( Get-AzureADUser -ObjectId $User.Userprincipalname ).ObjectId
         Add-AzureADGroupMember -ObjectId '522017b3-6721-4e29-ae69-2bdee2821687' -RefObjectId $ObjectId
-
-        $User."License Removed" = 'True'
-        
+        $User.LicenseRemoved = 'True'
     }
     catch {
-        $User."License Removed" = 'Error'
-
+        $User.LicenseRemoved = 'Error'
     }
 }
 
