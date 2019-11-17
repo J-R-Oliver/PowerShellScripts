@@ -58,3 +58,13 @@ foreach ( $User in $UserAccounts ){
 $UserAccounts | Export-Csv -NoTypeInformation -Path (Join-Path -Path ([Environment]::GetFolderPath("Desktop")) `
                            -ChildPath "VEEAMExcludedUserAccounts.csv")
 
+<#
+NOTES
+
+https://community.spiceworks.com/topic/1982283-office-365-remove-all-licenses-from-a-user
+
+https://docs.microsoft.com/en-gb/office365/enterprise/powershell/disable-access-to-services-with-office-365-powershell?redirectedfrom=MSDN
+
+https://o365reports.com/2018/12/14/export-office-365-user-license-report-powershell/
+
+#>
