@@ -32,35 +32,62 @@ function Get-AuthToken {
 
 }
 
-function Get-DeviceConfigurationPolicy {
-    
+function Set-DeviceConfigurationPolicy {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]$AuthenticationToken,
+        [Parameter(Mandatory=$true)]$Configuration,
         [string]$GraphAPIVersion = 'v1.0'
     )
     $URI = "https://graph.microsoft.com/$GraphAPIVersion/deviceManagement/deviceConfigurations"
-    Invoke-RestMethod -Uri $URI -Token $AuthenticationToken -Method Get
+    Invoke-RestMethod -Uri $URI -Token $AuthenticationToken -Method Post -Body $Configuration -ContentType "application/json"
 }
+
+function Import-JSON {
+    [CmdletBinding()]
+    param (
+
+    )
+    Add-Type -AssemblyName System.Windows.Forms
+    $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
+        InitialDirectory = [Environment]::GetFolderPath('Desktop')
+        Filter = 'CSV (Comma delimited) (*csv) |*.csv'
+    }
+    $FileBrowser.ShowDialog()
+    $JSON = Import-Csv -Path $FileBrowser.FileName
+    Return $JSON
+}
+######### The above needs to be convertered to JSON. CSV form kept below to update other scripts
+# Should also have a process block and return the appropriate type of object 
 
 $UserName = Read-Host -Prompt 'Please enter User Principal Name'
-$Policies = Get-DeviceConfigurationPolicy -AuthenticationToken ( Get-AuthToken -UserPrincipalName $UserName )
-foreach ( $Policy in $Policies ){
-    ConvertTo-Json -InputObject $Policy -Depth 5 | 
-    Set-Content -Path "$FilePath$($Policy.displayName.Replace( '\<|\>|:|"|/|\\|\||\?|\*' , '-' )).json"
+$Configuration = Import-JSON 
+Write-Host -Object "`nThe following settings will be uploaded to Intune."
+$Configuration 
+$Check = Read-Host -Prompt "`nPlease enter 'Y' to continue" 
+
+if ( $Check -eq 'Y' ){
+    Set-DeviceConfigurationPolicy -AuthenticationToken ( Get-AuthToken -UserPrincipalName $UserName )  -Configuration $Configuration
+}
+else {
+    Write-Host -Object "`nExiting without uploading policy"
 }
 
+#Notes: https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceConfiguration_Import_FromJSON.ps1
+#Notes: https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-windows10customconfiguration-list?view=graph-rest-1.0
 <#
-NOTES
+function Import-CsvForm {
+    [CmdletBinding()]
+    param (
 
-https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-windows10customconfiguration-list?view=graph-rest-1.0
-
-https://docs.microsoft.com/en-us/graph/auth-v2-user?view=graph-rest-1.0
-
-https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceConfiguration_Export.ps1
-
-https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-6
-
-https://docs.microsoft.com/en-gb/azure/active-directory/develop/v1-protocols-oauth-code
-
+    )
+    Add-Type -AssemblyName System.Windows.Forms
+    $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
+        InitialDirectory = [Environment]::GetFolderPath('Desktop')
+        Filter = 'CSV (Comma delimited) (*csv) |*.csv'
+    }
+    $FileBrowser.ShowDialog()
+    $Csv = Import-Csv -Path $FileBrowser.FileName
+    Return $Csv 
+}
 #>

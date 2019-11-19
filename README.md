@@ -81,3 +81,4 @@ Library of PowerShell Scripts
     - [ ] Remove Get-ETypeLaptopNames
     - [ ] Remove Remove-Office365Licenses [WIP2]
     - [ ] Add Intune Scripts
+    - [ ] Add Import-DeviceConfig (Intune)
