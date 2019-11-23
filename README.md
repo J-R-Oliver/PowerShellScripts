@@ -55,6 +55,10 @@ Library of PowerShell Scripts
 [Test-RemotePowerShell](Computer%20Scripts/Test-RemotePowerShell.ps1)\
 [Update-WindowsUpdate](Computer%20Scripts/Update-WindowsUpdate.ps1)
 
+### **SharePoint Scripts**
+
+[Set-SiteCollectionAdmin](SharePoint%20Scripts/Set-SiteCollectionAdmin.ps1)
+
 ### **VEEAM Scripts**
 
 [Remove-BulkVeeamDataLicense](VEEAM%20Scripts/Remove-BulkVeeamDataLicense.ps1)\
@@ -81,3 +85,8 @@ Library of PowerShell Scripts
     - [ ] Remove Get-ETypeLaptopNames
     - [ ] Remove Remove-Office365Licenses [WIP2]
     - [ ] Add Intune Scripts
+    - [ ] Add Remove-UserAccount
+    - [x] Add SharePoint Scripts Folder
+    - [x] Add Set-SiteCollectionAdmin 
+    - [ ] Add Set-BulkOffice365Licenses
+    - [ ] Remove WIP
