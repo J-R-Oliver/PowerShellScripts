@@ -10,7 +10,7 @@ $FileBrowser.ShowDialog()
 $UsersToDisable = Import-Csv -Path $FileBrowser.FileName | Select-Object 'UserPrincipalName', 'Name', 'Account Deleted'
 
 #Get todays date and sets count 
-$TodaysDate = Get-Date -Format 'MM/dd/yyyy'
+$TodaysDate = Get-Date -Format 'dd/MM/yyyy'
 $Count = 1
 
 #Script

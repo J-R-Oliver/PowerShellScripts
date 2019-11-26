@@ -24,8 +24,13 @@ $Users = Import-Csv -Path $FileBrowser.FileName | Select-Object @SelectParams
 
 foreach ( $User in $Users ){
     try {
-        $ServicesToDisable = New-MsolLicenseOptions -AccountSkuId $User.AccountSkuId  -DisabledPlans $User.DisabledServices
-        Set-MsolUserLicense -UserPrincipalName $User.UserPrincipalName -AddLicenses $User.AccountSkuId -LicenseOptions $ServicesToDisable
+        if ( $User.DisabledServices ) {
+            $ServicesToDisable = New-MsolLicenseOptions -AccountSkuId $User.AccountSkuId  -DisabledPlans $User.DisabledServices
+            Set-MsolUserLicense -UserPrincipalName $User.UserPrincipalName -AddLicenses $User.AccountSkuId -LicenseOptions $ServicesToDisable -ErrorAction Stop
+        }
+        else {
+            Set-MsolUserLicense -UserPrincipalName $User.UserPrincipalName -AddLicenses $User.AccountSkuId -ErrorAction Stop
+        } 
         $User.LicenseRemoved = 'Re-enabled'
     }
     catch {

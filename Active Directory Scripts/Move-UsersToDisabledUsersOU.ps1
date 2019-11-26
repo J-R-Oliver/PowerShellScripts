@@ -29,6 +29,6 @@ foreach ( $User in $DisabledUsers ){
 }
 
 #Export csv 
-$TodaysDate = (Get-Date -Format "MM/dd/yyyy HH:mm").Replace(':','.').Replace('/','.')
+$TodaysDate = Get-Date -Format "MM.dd.yyyy HH.mm"
 $Path = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "Disabled User Report ($TodaysDate).csv"
 $DisabledUsers | Export-Csv -NoTypeInformation -Path $Path

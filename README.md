@@ -90,3 +90,5 @@ Library of PowerShell Scripts
     - [x] Add Set-SiteCollectionAdmin 
     - [ ] Add Set-BulkOffice365Licenses
     - [ ] Remove WIP
+    - [ ] Add Import-DeviceConfig and Export (Intune)
+    - [] Add / finish Restart-Service wizzard to menu
