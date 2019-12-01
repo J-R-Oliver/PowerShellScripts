@@ -57,7 +57,7 @@ Instead of applying changes with the `commit` command, you can also use `commit-
 
 ## Useful Notes
 
-- `show configuration` commands will show all the commands to reconfigure the router to exactly how it currently is.
+- `show configuration commands` will show all the commands to reconfigure the router to exactly how it currently is.
 - `;` allows you to chain commands together. Example: `commit;save;exit` will execute those 3 in order.
 - `TAB` will autofill the rest of whatever commands are available. Example, if I type `set inteTAB` it'll autofill to `set interfaces`.
 - `&&` will run commands in order only if the previous command completes. Example: `commit && save && exit` will execute `save` is `commit` completes, and `exit` only if `commit` completes. 

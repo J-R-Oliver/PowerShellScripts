@@ -70,9 +70,10 @@ else {
 
 #Notes: https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceConfiguration_Import_FromJSON.ps1
 #Notes: https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-windows10customconfiguration-list?view=graph-rest-1.0
-<#
-function Import-CsvForm {
+
+function Import-CSVForm {
     [CmdletBinding()]
+    [OutputType([psobject])]
     param (
 
     )
@@ -82,7 +83,7 @@ function Import-CsvForm {
         Filter = 'CSV (Comma delimited) (*csv) |*.csv'
     }
     $FileBrowser.ShowDialog()
-    $Csv = Import-Csv -Path $FileBrowser.FileName
-    Return $Csv 
+    Import-Csv -Path $FileBrowser.FileName
+    #$Csv = Import-Csv -Path $FileBrowser.FileName
+    #Return $Csv 
 }
-#>

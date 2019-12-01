@@ -17,7 +17,7 @@ Library of PowerShell Scripts
 
 ### **Azure Active Directory Scripts**
 
-[Add-BulkOffice365Licenses](Azure%20Active%20Directory%20Scripts/Add-BulkOffice365Licenses.ps1)
+[Add-BulkOffice365Licenses](Azure%20Active%20Directory%20Scripts/Add-BulkOffice365Licenses.ps1)\
 [Add-UsersToVEEAMExclusion](Azure%20Active%20Directory%20Scripts/Add-UsersToVEEAMExclusion.ps1)\
 [Disable-OldAADDevice](Azure%20Active%20Directory%20Scripts/Disable-OldAADDevice.ps1)\
 [Get-AzureADBitlockerkeysForUser](Azure%20Active%20Directory%20Scripts/Get-AzureADBitlockerkeysForUser.ps1)\
@@ -72,12 +72,14 @@ Library of PowerShell Scripts
 
 ### **EdgeOS Scripts**
 
+[Configuration Commands](EdgeOS%20Scripts/Configuration%20Commands.sh)\
 [EdgeOS CLI Guide](EdgeOS%20Scripts/EdgeOS%20CLI%20Guide.md)\
 [Notepad](EdgeOS%20Scripts/Notepad.sh)
 
 ## Task List 
 
-- [ ] Finish Restart-Service wizzard to menu
+- [x] Finish Restart-Service wizzard to menu
 - [ ] Finish Intune scripts 
 - [ ] Create Import-CsvForm function
 - [ ] Create EdgeRouter configuration script
+- [ ] Remove user account 
