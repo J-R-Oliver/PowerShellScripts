@@ -5,27 +5,26 @@ Library of PowerShell Scripts
 
 ### **Active Directory Scripts**
 
-[Add-GEBulkAddUsersAD](Active%20Directory%20Scripts/Add-GEBulkAddUsersADActive.ps1)\
 [Disable-OldADUser](Active%20Directory%20Scripts/Disable-OldADUser.ps1)\
 [Get-ADPhoneList](Active%20Directory%20Scripts/Get-ADPhoneList.ps1)\
 [Get-BitLockerStatusADScan](Active%20Directory%20Scripts/Get-BitLockerStatusADScan.ps1)\
 [Get-ComputerReport](Active%20Directory%20Scripts/Get-ComputerReport.ps1)\
-[Get-ETypeLaptopNames](Active%20Directory%20Scripts/Get-ETypeLaptopNames.ps1)\
 [Get-UserMemberships](Active%20Directory%20Scripts/Get-UserMemberships.ps1)\
 [Get-UserPasswordExpired](Active%20Directory%20Scripts/Get-UserPasswordExpired.ps1)\
 [Move-UsersToDisabledUsersOU](Active%20Directory%20Scripts/Move-UsersToDisabledUsersOU.ps1)\
+[New-CSVADUser](Active%20Directory%20Scripts/New-CsvADUser.ps1)\
 [Remove-OldADUser](Active%20Directory%20Scripts/Remove-OldADUser.ps1)
 
 ### **Azure Active Directory Scripts**
 
+[Add-BulkOffice365Licenses](Azure%20Active%20Directory%20Scripts/Add-BulkOffice365Licenses.ps1)
 [Add-UsersToVEEAMExclusion](Azure%20Active%20Directory%20Scripts/Add-UsersToVEEAMExclusion.ps1)\
 [Disable-OldAADDevice](Azure%20Active%20Directory%20Scripts/Disable-OldAADDevice.ps1)\
 [Get-AzureADBitlockerkeysForUser](Azure%20Active%20Directory%20Scripts/Get-AzureADBitlockerkeysForUser.ps1)\
 [Get-OldAADDevice](Azure%20Active%20Directory%20Scripts/Get-OldAADDevice.ps1)\
-[Remove-Office365Licenses [WIP].ps1](Azure%20Active%20Directory%20Scripts/Remove-Office365Licenses%20[WIP].ps1)\
-[Remove-Office365Licenses [WIP2]](Azure%20Active%20Directory%20Scripts/Remove-Office365Licenses%20[WIP2].ps1)\
-[Remove-Office365Licenses-BackOut [WIP]](Azure%20Active%20Directory%20Scripts/Remove-Office365Licenses-BackOut%20[WIP].ps1)\
-[Remove-OldAADDevice](Azure%20Active%20Directory%20Scripts/Remove-OldAADDevice.ps1)
+[Remove-BulkOffice365Licenses.ps1](Azure%20Active%20Directory%20Scripts/Remove-BulkOffice365Licenses.ps1)\
+[Remove-OldAADDevice](Azure%20Active%20Directory%20Scripts/Remove-OldAADDevice.ps1)\
+[Set-BulkOffice365Licenses](Azure%20Active%20Directory%20Scripts/Set-BulkOffice365Licenses.ps1)
 
 ### **Exchange Online Scripts**
 
@@ -52,12 +51,19 @@ Library of PowerShell Scripts
 [Move-FilesWithLog](Computer%20Scripts/Move-FilesWithLog.ps1)\
 [Output-MSIProperies](Computer%20Scripts/Output-MSIProperies.ps1)\
 [Remove-Office365License](Computer%20Scripts/Remove-Office365License.bat)\
+[Remove-UserAccount](Computer%20Scripts/Remove-UserAccount.ps1)\
+[Restart-ServiceSearch](Computer%20Scripts/Restart-ServiceSearch.ps1)\
 [Test-RemotePowerShell](Computer%20Scripts/Test-RemotePowerShell.ps1)\
 [Update-WindowsUpdate](Computer%20Scripts/Update-WindowsUpdate.ps1)
 
 ### **SharePoint Scripts**
 
 [Set-SiteCollectionAdmin](SharePoint%20Scripts/Set-SiteCollectionAdmin.ps1)
+
+### **Intune Scripts**
+
+[Export-DeviceConfigurationPolicy](Intune%20Scripts/Export-DeviceConfigurationPolicy.ps1)\
+[Import-DeviceConfigurationPolicy](Intune%20Scripts/Import-DeviceConfigurationPolicy.ps1)
 
 ### **VEEAM Scripts**
 
@@ -71,24 +77,7 @@ Library of PowerShell Scripts
 
 ## Task List 
 
-- [x] Create Markdown cheat sheet. 
-- [x] Add task list to README.md
-- [x] Create contents page for GitHub.
-    - [x] Create folder hierarchy of scripts.
-    - [x] Add links to README page.
-- [x] Create EdgeOS CLI cheat sheet.
-- [ ] Updated contents page
-    - [x] Hide-UserfromGAL
-    - [x] Remove-Office365License
-    - [ ] Remove Add-GEBulk.....
-    - [ ] Add New-csvADUser
-    - [ ] Remove Get-ETypeLaptopNames
-    - [ ] Remove Remove-Office365Licenses [WIP2]
-    - [ ] Add Intune Scripts
-    - [ ] Add Remove-UserAccount
-    - [x] Add SharePoint Scripts Folder
-    - [x] Add Set-SiteCollectionAdmin 
-    - [ ] Add Set-BulkOffice365Licenses
-    - [ ] Remove WIP
-    - [ ] Add Import-DeviceConfig and Export (Intune)
-    - [] Add / finish Restart-Service wizzard to menu
+- [ ] Finish Restart-Service wizzard to menu
+- [ ] Finish Intune scripts 
+- [ ] Create Import-CsvForm function
+- [ ] Create EdgeRouter configuration script
