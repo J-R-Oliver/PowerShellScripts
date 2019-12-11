@@ -16,7 +16,8 @@ $Count = 1
 #Script
 foreach ( $User in $UsersToDisable ){
     $UserAccount = Get-AdUser -Filter "UserPrincipalName -eq '$($User.UserPrincipalName)'"
-    Set-ADUser -Identity $UserAccount -Replace @{msExchHideFromAddressLists="TRUE"} -Description "Disabled on $TodaysDate"                       
+    Set-ADUser -Identity $UserAccount -Replace @{msExchHideFromAddressLists="TRUE"} -Description "Disabled on $TodaysDate" 
+    Remove-ADGroupMember -Identity 'AllEmps' -Members $User.DistinguishedName                      
     Disable-ADAccount -Identity $UserAccount
     Move-ADObject -Identity $UserAccount -TargetPath 'OU=DisabledAccounts,DC=st-annes,DC=org,DC=uk' 
     $User."Account Deleted" = 'Disabled'

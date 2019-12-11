@@ -23,6 +23,7 @@ $DisabledUsers = Get-ADUser @ADUserParams | Select-Object @SelectParams
 #Moves users, hides from address book and adds disabled description.
 foreach ( $User in $DisabledUsers ){
     Set-ADUser -Identity $User.SamAccountName -Replace @{msExchHideFromAddressLists="TRUE"} -Description "Disabled on $($User.WhenDisabled)"
+    Remove-ADGroupMember -Identity 'AllEmps' -Members $User.DistinguishedName
     Move-ADObject -Identity $User.DistinguishedName -TargetPath 'OU=DisabledAccounts,DC=st-annes,DC=org,DC=uk' 
     Write-Host "$($User.name)'s AD user account has been moved to disabled OU"
     $User.'AD Account Status' = 'Disabled'
