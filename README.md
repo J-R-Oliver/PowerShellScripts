@@ -13,6 +13,8 @@ Library of PowerShell Scripts
 [Get-UserPasswordExpired](Active%20Directory%20Scripts/Get-UserPasswordExpired.ps1)\
 [Move-UsersToDisabledUsersOU](Active%20Directory%20Scripts/Move-UsersToDisabledUsersOU.ps1)\
 [New-CSVADUser](Active%20Directory%20Scripts/New-CsvADUser.ps1)\
+[ReEnable-DiableUserAccount](Active%20Directory%20Scripts\ReEnable-DisabledUserAccount.ps1)\
+[Remove-DisabledUsersFromGroup](Active%20Directory%20Scripts\Remove-DisabledUsersfromGroup.ps1)\
 [Remove-OldADUser](Active%20Directory%20Scripts/Remove-OldADUser.ps1)
 
 ### **Azure Active Directory Scripts**
@@ -37,7 +39,8 @@ Library of PowerShell Scripts
 [Hide-UserfromGAL](Exchange%20Online%20Scripts/Hide-UserfromGAL.ps1)\
 [Set-CalendarPermissions](Exchange%20Online%20Scripts/Set-CalendarPermissions.ps1)\
 [Set-OutOfOffice](Exchange%20Online%20Scripts/Set-OutOfOffice.ps1)\
-[Start-HardDeletePurge](Exchange%20Online%20Scripts/Start-HardDeletePurge.ps1)
+[Start-HardDeletePurge](Exchange%20Online%20Scripts/Start-HardDeletePurge.ps1)\
+[Test-SMTPSettings](Exchange%20Online%20Scripts\Test-SMTPSettings.ps1)
 
 ### **Computer Scripts**
 
