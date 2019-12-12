@@ -1,3 +1,14 @@
+function Get-AzureAD {
+    Write-Host -Object 'Checking if the AzureAD PowerShell module is installed...'
+    if ( ! (Get-Module -Name 'AzureAD')){
+        Write-Host -Object "`nAzureAD isn't installed. Installing module now..."
+        Install-Module -Name 'AzureAD' -Force
+    }
+    else {
+    Write-Host -Object '`nAzureAD is installed.'
+    }
+}
+
 function Get-AuthToken {
     [CmdletBinding()]
     [OutputType([System.Object])]
@@ -47,18 +58,3 @@ foreach ( $Policy in $Policies ) {
     ConvertTo-Json -InputObject $Policy -Depth 5 | 
     Set-Content -Path "$FilePath$($Policy.displayName.Replace( '\<|\>|:|"|/|\\|\||\?|\*' , '-' )).json"
 }
-
-<#
-NOTES
-
-https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-windows10customconfiguration-list?view=graph-rest-1.0
-
-https://docs.microsoft.com/en-us/graph/auth-v2-user?view=graph-rest-1.0
-
-https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceConfiguration_Export.ps1
-
-https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-6
-
-https://docs.microsoft.com/en-gb/azure/active-directory/develop/v1-protocols-oauth-code
-
-#>
