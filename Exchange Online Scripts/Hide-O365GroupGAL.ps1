@@ -19,7 +19,7 @@ $SelectParams = @{
                'PrimarySmtpAddress'
 }
 $MailboxSettings = Get-UnifiedGroup $GroupIdentity | Select-Object @SelectParams
-Write-Host -Object "`n $GroupIdentity has been hidden from the address list. The current mailbox settings are:"
+Write-Host -Object "`n$GroupIdentity has been hidden from the address list. The current mailbox settings are:"
 $MailboxSettings
 
 #Close Exchange Session 
