@@ -58,3 +58,5 @@ foreach ( $Policy in $Policies ) {
     ConvertTo-Json -InputObject $Policy -Depth 5 | 
     Set-Content -Path "$FilePath$($Policy.displayName.Replace( '\<|\>|:|"|/|\\|\||\?|\*' , '-' )).json"
 }
+
+# https://evotec.xyz/powershell-few-tricks-about-hashtable-and-array-i-wish-i-knew-when-i-started/ 
