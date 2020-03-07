@@ -1,5 +1,5 @@
-# PowerShell-Library
-Library of PowerShell Scripts
+# PowerShellScripts
+Repository for PowerShell scripts.
 
 ## Contents
 
@@ -72,17 +72,3 @@ Library of PowerShell Scripts
 
 [Remove-BulkVeeamDataLicense](VEEAM%20Scripts/Remove-BulkVeeamDataLicense.ps1)\
 [Remove-VeeamDataLicense](VEEAM%20Scripts/Remove-VeeamDataLicense.ps1)
-
-### **EdgeOS Scripts**
-
-[Configuration Commands](EdgeOS%20Scripts/Configuration%20Commands.sh)\
-[EdgeOS CLI Guide](EdgeOS%20Scripts/EdgeOS%20CLI%20Guide.md)\
-[Notepad](EdgeOS%20Scripts/Notepad.sh)
-
-## Task List 
-
-- [x] Finish Restart-Service wizzard to menu
-- [ ] Finish Intune scripts 
-- [ ] Create Import-CsvForm function
-- [ ] Create EdgeRouter configuration script
-- [ ] Remove user account 
